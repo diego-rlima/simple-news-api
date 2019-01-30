@@ -184,6 +184,7 @@ return [
          * Domains Service Providers...
          */
         App\Domains\Account\Providers\DomainServiceProvider::class,
+        App\Domains\Upload\Providers\DomainServiceProvider::class,
 
         /*
          * Unit Service Providers...
