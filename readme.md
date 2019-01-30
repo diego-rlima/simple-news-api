@@ -1,6 +1,8 @@
-# Starting with Laravel and Docker
+# Laravel Simple News Api
 
-This repository is my starter kit for developing with Laravel and Docker. It's really basics, but you'll be able to start developing without getting bored with the installation of PHP, Nginx and MySQL.
+This repository is part of an interview test. You can check the requirements [here (pt-BR)](requirements.md).
+
+It's based on my starter kit for developing RESTful APIs with Laravel and Docker.
 This ships with **PHP 7.3-fpm**, **Nginx 1.15.8-alpine** and **MySQL 5.7.25**.
 
 ## Requirements
@@ -12,20 +14,20 @@ You only need [Docker](https://docs.docker.com/install/) and [Docker Compose](ht
 First, clone this repository or just download it.
 
 ````
-$ git clone https://github.com/diego-rlima/laravel-docker.git app-folder
+$ git clone https://github.com/diego-rlima/simple-news-api.git
 ````
 
 After, install the Laravel dependencies with Composer.
 
 ````
-$ cd ./app-folder
+$ cd ./simple-news-api
 $ docker run --rm -v $(pwd):/app composer install
 ````
 
 Set the permissions on the project folder.
 
 ````
-$ sudo chown -R $USER:$USER /path/to/app-folder
+$ sudo chown -R $USER:$USER /path/to/simple-news-api
 ````
 
 Create the .env file.
