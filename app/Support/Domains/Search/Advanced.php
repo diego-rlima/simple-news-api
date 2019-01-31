@@ -65,6 +65,22 @@ class Advanced
 
             $this->queries->each(function($field, $name) use ($query) {
                 extract($field);
+
+                // We verify if it is a relationship query.
+                if (isset($relationship)) {
+                    $value = Request::get($name);
+
+                    if (empty($value)) {
+                        return;
+                    }
+
+                    $query->whereHas($relationship, function ($query) use ($callback, $value) {
+                        $callback($query, $value);
+                    });
+
+                    return;
+                }
+
                 $value = $this->builder->termFormatted(Request::get($name), $column, ($operator == 'like'));
 
                 if ( !empty($value) || (!is_null($value) && intval($value) === 0 && $value !== '') ) {
@@ -98,10 +114,24 @@ class Advanced
 
         $name = $this->prefix . ucfirst($name);
 
-        $this->queries->put($name, [
-            'column' => $column,
-            'operator' => $operator
-        ]);
+        $this->queries->put($name, compact('column', 'operator'));
+
+        return $this;
+    }
+
+    /**
+     * Add a relationship to be searched.
+     *
+     * @param  string    $name
+     * @param  string    $relationship
+     * @param  callable  $callback
+     * @return self
+     */
+    public function addRelationship(string $name, string $relationship, callable $callback): self
+    {
+        $name = $this->prefix . ucfirst($name);
+
+        $this->queries->put($name, compact('relationship', 'callback'));
 
         return $this;
     }
