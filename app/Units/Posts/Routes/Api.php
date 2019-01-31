@@ -27,11 +27,11 @@ class Api extends Route
      */
     protected function categoriesRoutes(): void
     {
-        $this->router->get('/', 'CategoryController@index');
-        $this->router->post('/', 'CategoryController@store');
-        $this->router->get('/{id}', 'CategoryController@show');
-        $this->router->patch('/{id}', 'CategoryController@update');
-        $this->router->delete('/{id}', 'CategoryController@destroy');
+        $this->router->get('/categories', 'CategoryController@index');
+        $this->router->post('/categories', 'CategoryController@store');
+        $this->router->get('/categories/{id}', 'CategoryController@show');
+        $this->router->patch('/categories/{id}', 'CategoryController@update');
+        $this->router->delete('/categories/{id}', 'CategoryController@destroy');
     }
 
     /**
