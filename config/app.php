@@ -192,6 +192,7 @@ return [
         App\Units\Core\Providers\UnitServiceProvider::class,
         App\Units\Auth\Providers\UnitServiceProvider::class,
         App\Units\Users\Providers\UnitServiceProvider::class,
+        App\Units\Uploads\Providers\UnitServiceProvider::class,
 
     ],
 
