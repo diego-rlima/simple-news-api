@@ -21,12 +21,12 @@ class CreatePostsTables extends Migration
             $table->string('title');
             $table->string('slug')->unique();
             $table->text('content');
-            $table->unsignedInteger('author')->nullable();
+            $table->unsignedInteger('author_id')->nullable();
 
             $table->timestamps();
             $table->softDeletes();
 
-            $table->foreign('author')
+            $table->foreign('author_id')
                 ->references('id')
                 ->on('users')
                 ->onDelete('set null');

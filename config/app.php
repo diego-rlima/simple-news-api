@@ -194,6 +194,7 @@ return [
         App\Units\Auth\Providers\UnitServiceProvider::class,
         App\Units\Users\Providers\UnitServiceProvider::class,
         App\Units\Uploads\Providers\UnitServiceProvider::class,
+        App\Units\Posts\Providers\UnitServiceProvider::class,
 
     ],
 
