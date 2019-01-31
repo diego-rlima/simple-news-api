@@ -2,6 +2,7 @@
 
 namespace App\Domains\Account\Models;
 
+use App\Domains\Post\Models\Post;
 use Illuminate\Notifications\Notifiable;
 
 use App\Support\Domains\Model;
@@ -89,6 +90,16 @@ class User extends Model implements
     public function sendPasswordResetNotification($token): void
     {
         $this->notify(new ResetPasswordNotification($token));
+    }
+
+    /**
+     * Get the posts for the user.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function posts()
+    {
+        return $this->hasMany(Post::class, 'author');
     }
 
     /**
