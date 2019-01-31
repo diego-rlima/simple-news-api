@@ -18,6 +18,13 @@ class Post extends Model
     ];
 
     /**
+     * The relations to eager load on every query.
+     *
+     * @var array
+     */
+    protected $with = ['categories', 'author', 'thumbnail'];
+
+    /**
      * The categories that the post belongs to.
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
