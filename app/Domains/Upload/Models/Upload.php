@@ -39,7 +39,7 @@ class Upload extends Model
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function post()
+    public function parent()
     {
         return $this->belongsTo(self::class, 'parent_id');
     }
